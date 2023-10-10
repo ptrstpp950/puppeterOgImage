@@ -6,6 +6,11 @@ const app = express();
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+app.get('/healthz', (req, res) => {
+    res.status(200).send('Healthy!');
+});
+
 app.get('/screenshot', async (req, res) => {
     const url = req.query.url;
     if (!url) {
